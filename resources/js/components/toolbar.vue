@@ -5,12 +5,20 @@
 
       <v-spacer></v-spacer>
 
-      <v-toolbar-items>
-        <v-btn text>forum</v-btn>
-        <v-btn text>Category</v-btn>
-        <v-btn text>Ask Question</v-btn>
-        <v-btn text>Log-in</v-btn>
-      </v-toolbar-items>
+      <div>
+        <router-link to='/forum'>
+          <v-btn text>forum</v-btn>
+        </router-link>
+        <router-link to="/category">
+          <v-btn text>Category</v-btn>
+        </router-link>
+        <router-link>
+          <v-btn text>Ask Question</v-btn>
+        </router-link>
+        <router-link to="/login">
+          <v-btn text>Log-in</v-btn>
+        </router-link>
+      </div>
 
     </v-toolbar>
   </div>
