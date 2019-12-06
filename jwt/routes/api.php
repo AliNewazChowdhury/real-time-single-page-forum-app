@@ -1,0 +1,15 @@
+<?php
+
+
+
+Route::post('login', 'APIController@login');
+Route::post('register', 'APIController@register');
+
+Route::group(['middleware' => 'auth.jwt'], function () {
+    Route::get('logout', 'APIController@logout');
+    Route::get('tasks', 'TaskController@index');
+    Route::get('tasks/{id}', 'TaskController@show');
+    Route::post('tasks', 'TaskController@store');
+    Route::put('tasks/{id}', 'TaskController@update');
+    Route::delete('tasks/{id}', 'TaskController@destroy');
+});
