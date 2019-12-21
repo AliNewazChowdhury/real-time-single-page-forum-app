@@ -1922,7 +1922,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1931,6 +1930,13 @@ __webpack_require__.r(__webpack_exports__);
         password: null
       }
     };
+  },
+  methods: {
+    login: function login() {
+      axios.post('/api/auth/login', this.form).then(function (res) {
+        return console.log(res.data);
+      }); //.error(error=>console.log(error.response.data));
+    }
   }
 });
 
@@ -19666,12 +19672,11 @@ var render = function() {
   return _c(
     "v-form",
     {
-      model: {
-        value: _vm.valid,
-        callback: function($$v) {
-          _vm.valid = $$v
-        },
-        expression: "valid"
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.login($event)
+        }
       }
     },
     [
@@ -19724,9 +19729,11 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("v-btn", { attrs: { small: "", color: "green" } }, [
-            _vm._v("Primary")
-          ])
+          _c(
+            "v-btn",
+            { attrs: { small: "", color: "green", type: "submit" } },
+            [_vm._v("login")]
+          )
         ],
         1
       )

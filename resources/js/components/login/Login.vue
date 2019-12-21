@@ -1,5 +1,5 @@
 <template>
-  <v-form v-model="valid">
+  <v-form @submit.prevent="login">
     <v-container>
       <v-row>        
         <v-col
@@ -25,7 +25,7 @@
           ></v-text-field>
         </v-col>
       </v-row>
-        <v-btn small color="green">Primary</v-btn>
+        <v-btn small color="green" type="submit">login</v-btn>
     </v-container>
   </v-form>
 </template>
@@ -38,6 +38,11 @@ export default {
                 password:null
             }
         }
+    },
+    methods:{
+      login(){
+        User.login(this.form);
+      }
     }
 }
 </script>

@@ -11,6 +11,11 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify)
+
+import User from './helpers/User'
+
+window.User = User
+
 Vue.config.productionTip = false;
 import AppHome from './components/AppHome.vue';
 Vue.component('app-home', AppHome);
