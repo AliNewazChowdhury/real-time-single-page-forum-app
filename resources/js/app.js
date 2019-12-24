@@ -16,7 +16,8 @@ import User from './helpers/User'
 
 window.User = User
 
-Vue.config.productionTip = false;
+window.EventBus = new Vue();
+
 import AppHome from './components/AppHome.vue';
 Vue.component('app-home', AppHome);
 

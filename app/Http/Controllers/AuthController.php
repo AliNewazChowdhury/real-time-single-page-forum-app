@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use JWTAuth;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\RegistrationFormRequest;
 class AuthController extends Controller
 {
     public $loginAfterSignUp = true;
 
-    public function register(Request $request)
+    public function register(RegistrationFormRequest $request)
     {
       $user = User::create([
         'name' => $request->name,
